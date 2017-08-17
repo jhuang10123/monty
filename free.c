@@ -16,7 +16,8 @@ void free_stack(stack_t **stack)
 }
 
 /**
- *
+ * free_all - frees stack, buffer, and closes file
+ * @stack: pointer to stack/doubly linked list
  */
 void free_all(stack_t **stack)
 {
