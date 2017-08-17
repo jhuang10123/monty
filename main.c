@@ -30,17 +30,14 @@ int main(int argc, char *argv[])
 		line_number += 1;
 		token = strtok(info.buffer, "\n \t");
 
-		while (token != NULL)
+		if (strcmp(token, "push") == 0)
 		{
-			if (strcmp(token, "push") == 0)
-			{
-				token = strtok(NULL, "\n \t");
-				push(token, &stack, line_number);
-			}
-			else
-				check_opcode(token, line_number, &stack);
 			token = strtok(NULL, "\n \t");
+			push(token, &stack, line_number);
 		}
+		else
+			check_opcode(token, line_number, &stack);
+		token = strtok(NULL, "\n \t");
 	}
 
 	free_all(&stack);
