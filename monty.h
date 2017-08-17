@@ -70,4 +70,5 @@ void nop(stack_t **stack, unsigned int line_number);
 /* FREE */
 void free_stack(stack_t **stack);
 void free_all(stack_t **stack);
+
 #endif /*MONTY*/
