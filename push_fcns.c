@@ -21,7 +21,7 @@ void push(char *token, stack_t **stack, unsigned int line_number\
                 if (new == NULL)
                 {
 			printf("Error: malloc failed\n");
-			free_stack(stack);
+			free_all(stack);
 			exit(EXIT_FAILURE);
                 }
 

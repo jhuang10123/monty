@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 	size_t n;
 	unsigned int line_number = 1;
 	char *token = NULL;
-	stack_t *stack;
+	stack_t *stack = NULL;
 	info.buffer = NULL;
 
 	if (argc != 2)
