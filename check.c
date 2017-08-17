@@ -1,31 +1,35 @@
 #include "monty.h"
 /**
- *
+ * check_opcode - checks whether user input matches opcodes in struct
+ * @token: token to check
+ * @stack: doubly linked list stack
+ * @line_number: line number of command in file
  */
-int check_opcode(char *tokens, stack_t **stack, int line_number)
+void check_opcode(char *token, int line_number, stack_t **stack)
 {
 	unsigned int i;
 
-	i = 0;
-
 	instruction_t opcode[] = {
-		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"nop", nop},
 		{NULL, NULL}
 
 	};
 
+	i = 0;
 	while (opcode[i].opcode != NULL)
 	{
-		if (strcmp(opcode[i].opcode, tokens) == 0)
+		if (strcmp(opcode[i].opcode, token) == 0)
 		{
 			opcode[i].f(stack, line_number);
-			return (0);
+			return;
 		}
 		i++;
 	}
 
-/* error handle */
+	printf("L%d: unknown instruction %s\n", line_number, token);
+	return;
 
-	return (1);
 }

@@ -2,7 +2,8 @@
 #define MONTY
 #include <stdlib.h>
 #include <stdio.h>
-#include <strings.h>
+#include <string.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -44,29 +45,29 @@ typedef struct instruction_s
  */
 typedef struct info_s
 {
-	FILE file;
+	FILE *file;
 	char *buffer;
 	int mode;
-} info_t;
+}info_t;
 
 extern info_t info;
 
 
-
 /* CHECK */
-int check_opcode(char *tokens, stack_t **stack, int line_number);
+void check_opcode(char *token, int line_number, stack_t **stack);
 
 
 /* helpers */
-int check_digit(char *value);
+int check_digit(char *value, unsigned int line_number);
 
 /* OPCODES */
-void push(char **tokens, stack_t **stack, unsigned int line_number);
+void push(char *tokens, stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
-int pop(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 
-
-
+/* FREE */
+void free_stack(stack_t **stack);
+void free_all(stack_t **stack);
 #endif /*MONTY*/

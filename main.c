@@ -1,43 +1,48 @@
 #include "monty.h"
+info_t info;
+
 /**
  *
  */
 int main(int argc, char *argv[])
 {
 	size_t n;
-	unsigned int line_count = 1;
-	char **tokens = NULL;
+	unsigned int line_number = 1;
+	char *token = NULL;
 	stack_t *stack;
 	info.buffer = NULL;
 
-/* check number of arguments */
 	if (argc != 2)
 	{
-/* error handle */
+		printf("USAGE: monty file\n");
+		exit(EXIT_FAILURE);
 	}
-/* fopen file, check if success*/
+
 	info.file = fopen(argv[1], "r");
-	if (file == NULL)
+	if (info.file == NULL)
 	{
-/* handle error */
+		printf("Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
 	}
 
 	while (getline(&info.buffer, &n, info.file) != -1)
 	{
-		line_count += 1;
-		tokens = strtok(buffer, "\n \t");
+		line_number += 1;
+		token = strtok(info.buffer, "\n \t");
 
-		while (tokens != NULL)
+		while (token != NULL)
 		{
-			if (strcmp(tokens, "push") == 0)
-				push(tokens);
+			if (strcmp(token, "push") == 0)
+			{
+				token = strtok(NULL, "\n \t");
+				push(token, &stack, line_number);
+			}
 			else
-				check_opcode(tokens, );
-
-			tokens = strtok(NULL, "\n \t");
+				check_opcode(token, line_number, &stack);
+			token = strtok(NULL, "\n \t");
 		}
 	}
 
-	fclose(file);
-/* free all */
+	free_all(&stack);
+	return (0);
 }
