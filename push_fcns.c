@@ -33,7 +33,7 @@ void push(char *token, stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		printf("L%d: usage: push integer", line_number);
+		printf("L%u: usage: push integer", line_number);
 		free_all(stack);
 		exit(EXIT_FAILURE);
 	}

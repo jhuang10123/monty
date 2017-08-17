@@ -18,7 +18,7 @@ int check_digit(char *value, unsigned int line_number)
 
 		if (isdigit(value[i]) == 0)
 		{
-			printf("L%d: usage: push integer\n", line_number);
+			printf("L%u: usage: push integer\n", line_number);
 			return (1);
 		}
 		i++;
