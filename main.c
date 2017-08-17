@@ -7,7 +7,7 @@ info_t info;
 int main(int argc, char *argv[])
 {
 	size_t n;
-	unsigned int line_number = 1;
+	unsigned int line_number = 0;
 	char *token = NULL;
 	stack_t *stack = NULL;
 	info.buffer = NULL;
