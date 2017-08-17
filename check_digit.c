@@ -1,7 +1,8 @@
 #include "monty.h"
 /**
- * int_convert - converts string to int
+ * check_digit - converts string to int
  * @value: string to convert
+ * @line_number: line number
  * Return: converted value or -1
  */
 int check_digit(char *value, unsigned int line_number)

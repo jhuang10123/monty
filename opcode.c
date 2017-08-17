@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * pall - prints all the values on the stack, starting from the top of the stack
+ * pall - prints all values on the stack, from the top of the stack
  * @stack: doubly linked list stack
  * @line_number: line number of token in file
  */
@@ -32,8 +32,8 @@ void pint(stack_t **stack, unsigned int line_number)
 	if (stack == NULL || *stack == NULL)
 	{
 		printf("L<%d>: can't pint, stack empty\n", line_number);
-                free_stack(stack);
-                free(info.buffer);
+		free_stack(stack);
+		free(info.buffer);
 		exit(EXIT_FAILURE);
 	}
 
@@ -65,13 +65,11 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	if (*stack != NULL)
 		(*stack)->prev = NULL;
-
-	return;
 }
 
 
 /**
- * nop - 
+ * nop - does nothing
  * @stack: doubly linked list stack
  * @line_number: line number of token in file
  */
@@ -100,27 +98,4 @@ void swap(stack_t **stack, unsigned int line_number)
 	store_val = temp->n;
 	temp->n = temp->next->n;
 	temp->next->n = store_val;
-}
-
-/**
- * add - adds the top two elements of the stack
- * @stack: doubly linked list stack
- * @line_number: line number of token in file
- */
-void add(stack_t **stack, unsigned int line_number)
-{
-	stack_t *temp;
-	int added_val;
-
-        temp = *stack;
-        if (temp == NULL || temp->next == NULL)
-        {
-                printf("L%d: can't swap, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-        }
-	added_val = temp->n + temp->next->n;
-	temp->next->n = added_val;
-	*stack = (*stack)->next;
-	free(temp);
-
 }

@@ -2,7 +2,10 @@
 info_t info;
 
 /**
- *
+ * main - main
+ * @argc: agrument count
+ * @argv: argument vector
+ * Return: 0
  */
 int main(int argc, char *argv[])
 {
@@ -10,6 +13,7 @@ int main(int argc, char *argv[])
 	unsigned int line_number = 0;
 	char *token = NULL;
 	stack_t *stack = NULL;
+
 	info.buffer = NULL;
 
 	if (argc != 2)
