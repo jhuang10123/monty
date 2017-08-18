@@ -17,6 +17,9 @@ void check_opcode(char *token, int line_number, stack_t **stack)
 		{"add", add},
 		{"swap", swap},
 		{"sub", sub},
+		{"div", divi},
+		{"mod", mod},
+		{"mul", mul},
 		{NULL, NULL}
 
 	};
