@@ -12,9 +12,8 @@ int check_digit(char *value, unsigned int line_number)
 	i = 0;
 	while (value[i] != '\0')
 	{
-/* handle negative */
 		if (value[i] == '-' && i == 0)
-			continue;
+			i++;
 
 		if (isdigit(value[i]) == 0)
 		{

@@ -33,6 +33,8 @@ int main(int argc, char *argv[])
 	{
 		line_number += 1;
 		token = strtok(info.buffer, "\n \t");
+		if (token[0] == '#')
+			continue;
 
 		if (strcmp(token, "push") == 0)
 		{
