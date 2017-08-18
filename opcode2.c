@@ -46,28 +46,26 @@ void sub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * divi - divides second top element by the top element of the stack
-ment of the stack.
+* divi - divides second top element by the top element of the stack
 * @stack: doubly linked list stack
 * @line_number: line number of token in file
 */
 void divi(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
-        int new_val;
+	int new_val;
 
 	temp = *stack;
-        if (temp == NULL || temp->next == NULL)
-        {
-                printf("L%u: can't div, stack too shor\
-t\n", line_number);
-                exit(EXIT_FAILURE);
-        }
+	if (temp == NULL || temp->next == NULL)
+	{
+		printf("L%u: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
 	if (temp->n == 0)
 	{
-                printf("L%u: division by zero\n", line_number);
-                exit(EXIT_FAILURE);
+		printf("L%u: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 
 	new_val = temp->next->n / temp->n;
@@ -89,21 +87,20 @@ void mod(stack_t **stack, unsigned int line_number)
 	temp = *stack;
 	if (temp == NULL || temp->next == NULL)
 	{
-		printf("L%u: can't mod, stack too shor\
-t\n", line_number);
-                exit(EXIT_FAILURE);
-        }
+		printf("L%u: can't mod, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
-        if (temp->n == 0)
-        {
-                printf("L%u: division by zero\n", line_number);
-                exit(EXIT_FAILURE);
-        }
+	if (temp->n == 0)
+	{
+		printf("L%u: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
-        new_val = temp->next->n % temp->n;
-        temp->next->n = new_val;
+	new_val = temp->next->n % temp->n;
+	temp->next->n = new_val;
 
-        pop(stack, line_number);
+	pop(stack, line_number);
 }
 
 
@@ -114,18 +111,18 @@ t\n", line_number);
 */
 void mul(stack_t **stack, unsigned int line_number)
 {
-        stack_t *temp;
-        int new_val;
+	stack_t *temp;
+	int new_val;
 
-        temp = *stack;
-        if (temp == NULL || temp->next == NULL)
+	temp = *stack;
+	if (temp == NULL || temp->next == NULL)
 	{
-                printf("L%u: can't mul, stack too short\n", line_number);
+		printf("L%u: can't mul, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
-        }
+	}
 
-        new_val = temp->next->n * temp->n;
-        temp->next->n = new_val;
+	new_val = temp->next->n * temp->n;
+	temp->next->n = new_val;
 
-        pop(stack, line_number);
+	pop(stack, line_number);
 }
